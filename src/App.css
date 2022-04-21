@@ -1,21 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  background-color: white;
+}
+.full {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
-  text-align: center;
-}
-img {
-  height: 500px;
-  width: 500px;
-}
-
-.mainContainer {
+  margin-left: 25%;
+  /* border: 3px red solid; */
+  width: 50%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  background-color: white;
 }
 
-.imgDiv {
-  border: grey solid 2px;
-  width: 600px;
-  margin: 5%;
-  padding: 5%;
+.nav {
+  /* border:2px green solid; */
+  width: 50%;
+  height: 15%;
+  /* background-color: blue; */
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: row;
+  margin-left: 25%;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+}
+
+.nav ul {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+.nav ul li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+#logo {
+  height: 100px;
+  width: 150px;
+  /* margin-right: 420px; */
+}
+.icons {
+  display: flex;
+  /* border: 2px solid yellow; */
+  margin-left: auto;
+  width: 30%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.icons1:hover {
+  color: blue;
+}
+
+.storydiv {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-left: 25%;
+  /* border: 3px pink solid; */
+  margin-bottom: 40px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+}
+.Story {
+  display: flex;
+
+  /* border: 3px red solid; */
+  width: 100%;
+  justify-content: space-around;
+}
+
+.Story img {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profileImg {
+  border-radius: 50%;
+}
+
+.profileUser {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.profileUser h4 {
+  margin-left: 10px;
+}
+
+.tile {
+  margin-bottom: 50px;
+}
+
+#nameptag {
+  font-size: small;
 }
