@@ -1,30 +1,49 @@
-import React, { useState, useEffect } from "react";
+// import React from "react";
+// import { useState, useEffect } from "react";
 
-const GetImg = () => {
-  const [imgs, setImgs] = useState([]);
+// const GetImage = ({ user }) => {
+//   const [img, setImg] = useState([]);
+//   const fetchImg = async () => {
+//     const fetchedData = await fetch(
+//       "https://picsum.photos/v2/list?page=2&limit=5"
+//     );
+//     const res = await fetchedData.json();
+//     setImg(res);
+//   };
+//   useEffect(() => {
+//     fetchImg();
+//   }, []);
 
-  const fetchImg = async () => {
-    let res = await fetch("https://picsum.photos/v2/list?limit=20");
-    let data = await res.json();
-    console.log(data);
-    setImgs(data);
-  };
+//   return (
+//     <div>
+//       {user &&
+//         img.map((item, index) => {
+//           return (
+//             <div className="tile">
+//               <div className="profileUser">
+//                 <img
+//                   src={item.download_url}
+//                   width={30}
+//                   height={30}
+//                   className="profileImg"
+//                   alt="Random Image"
+//                 />
+//                 <h4>{item.author} </h4>
+//               </div>
 
-  useEffect(() => {
-    fetchImg();
-  }, []);
+//               <img
+//                 key={item.id}
+//                 src={item.download_url}
+//                 width={300}
+//                 height={300}
+//               />
 
-  return (
-    <div className="mainContainer">
-      {imgs.map((item, index) => {
-        return (
-          <div className="imgDiv">
-            <h1>{item.author}</h1>
-            <img key={item.id} src={item.download_url} alt="Random Images" />
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-export default GetImg;
+//               <h4 id="nameptag">{item.author}: </h4>
+//             </div>
+//           );
+//         })}
+//     </div>
+//   );
+// };
+
+// export default GetImage;
