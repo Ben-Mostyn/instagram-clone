@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Story = () => {
+const Story = ({ user }) => {
   const [img, setImg] = useState([]);
   const fetchImg = async () => {
     const fetchedData = await fetch(
@@ -16,19 +16,20 @@ const Story = () => {
 
   return (
     <div className="Story">
-      {img.map((item, index) => {
-        return (
-          <div>
-            <img
-              key={item.id}
-              src={item.download_url}
-              width={70}
-              height={70}
-              alt="story Profile pic"
-            />
-          </div>
-        );
-      })}
+      {user &&
+        img.map((item, index) => {
+          return (
+            <div>
+              <img
+                key={item.id}
+                src={item.download_url}
+                width={70}
+                height={70}
+                alt="story Profile pic"
+              />
+            </div>
+          );
+        })}
     </div>
   );
 };

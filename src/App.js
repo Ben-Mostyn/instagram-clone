@@ -5,10 +5,12 @@ import { UsernameForm } from "./components/usernameForm";
 import Navbar from "./components/Navbar";
 import Story from "./components/Story";
 import { tokenCheck } from "./utils";
+// import Modal from "./modal/modal";
 
 const App = () => {
   const [user, setUser] = useState();
   const [img, setImg] = useState([]);
+  const [show, setShow] = useState(false);
 
   const fetchImg = async () => {
     const fetchedData = await fetch(
@@ -27,45 +29,51 @@ const App = () => {
   return (
     <div className="full">
       <nav classname="nav">
-        <Navbar />
+        <Navbar setShow={setShow} />
       </nav>
-      {user && <h1>{user}</h1>}
-      <UsernameForm setUser={setUser} />
 
-      <div className="storydiv">
-        <Story />
-      </div>
+      <UsernameForm
+        setUser={setUser}
+        user={user}
+        onClose={() => setShow(false)}
+        show={show}
+      />
+      <div className="mainContent">
+        <div className="storydiv">
+          <Story user={user} />
+        </div>
 
-      <div className="App">
-        {/* <GetImage user={user} /> */}
-        <div>
-          {user &&
-            img.map((item, index) => {
-              return (
-                <div className="tile">
-                  <div className="profileUser">
+        <div className="App">
+          {/* <GetImage user={user} /> */}
+          <div>
+            {user &&
+              img.map((item, index) => {
+                return (
+                  <div className="tile">
+                    <div className="profileUser">
+                      <img
+                        src={item.download_url}
+                        width={30}
+                        height={30}
+                        className="profileImg"
+                        alt="Random"
+                      />
+                      <h4>{item.author} </h4>
+                    </div>
+
                     <img
+                      key={item.id}
                       src={item.download_url}
-                      width={30}
-                      height={30}
-                      className="profileImg"
-                      alt="Random"
+                      width={300}
+                      height={300}
+                      alt="random"
                     />
-                    <h4>{item.author} </h4>
+
+                    <h4 id="nameptag">{item.author}: </h4>
                   </div>
-
-                  <img
-                    key={item.id}
-                    src={item.download_url}
-                    width={300}
-                    height={300}
-                    alt="random"
-                  />
-
-                  <h4 id="nameptag">{item.author}: </h4>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
       </div>
     </div>
